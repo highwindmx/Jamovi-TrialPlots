@@ -1,0 +1,17 @@
+---
+name:  spider
+title: 1期研究 - 蜘蛛图
+jrs:   '1.1'
+
+items:
+    - name:  text
+      title: Spider Plot for Phase 1 trial
+      type:  Preformatted
+
+    - name:  res_plot
+      title: 蜘蛛图
+      type:  Image
+      width: 1200
+      height: 1000
+      renderFun: .plot
+...

@@ -185,8 +185,8 @@ waterfallResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 options=options,
                 name="res_plot",
                 title="\u7011\u5E03\u56FE",
-                width=1200,
-                height=1000,
+                width=1000,
+                height=800,
                 renderFun=".plot"))
             self$add(jmvcore::Table$new(
                 options=options,

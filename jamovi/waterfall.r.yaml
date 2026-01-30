@@ -15,8 +15,8 @@ items:
     - name:  res_plot
       title: 瀑布图
       type:  Image
-      width: 1200
-      height: 1000
+      width: 1000
+      height: 800
       renderFun: .plot
 
     - name:  res_table

@@ -19,6 +19,20 @@ analyses:
     menuGroup: TrialPlots
     menuTitle: Waterfall plot
     menuSubgroup: Phase1
+  - title: Spider Plot
+    name: spider
+    ns: ClinicalTrialVisualization
+    category: analyses
+    menuGroup: TrialPlots
+    menuTitle: Spider Plot
+    menuSubgroup: Phase1
+  - title: Swimmer Plot
+    name: swimmer
+    ns: ClinicalTrialVisualization
+    category: analyses
+    menuGroup: TrialPlots
+    menuTitle: Swimmer Plot
+    menuSubgroup: Phase1
 usesNative: true
 minApp: 1.0.8
 
