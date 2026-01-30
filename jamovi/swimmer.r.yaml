@@ -1,0 +1,17 @@
+---
+name:  swimmer
+title: 1期研究 - 泳道图
+jrs:   '1.1'
+
+items:
+    - name:  text
+      title: Swimmer Plot
+      type:  Preformatted
+
+    - name:  res_plot
+      title: 泳道图
+      type:  Image
+      width: 600
+      renderFun: .plot      
+
+...

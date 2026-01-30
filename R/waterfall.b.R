@@ -76,27 +76,28 @@ waterfallClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Class(
                 #     ulim <- 100
                 #     llim <- -100
                 # }
-                
+                ulim <- max(plotData$sodcg) +5
+                llim <- min(plotData$sodcg) -5
                 plotBar <- ggplot(data = plotData, aes(x = reorder(pids,-sodcg), y = sodcg, fill = bargp)) + 
                         geom_bar(stat = "identity", width = 0.8) + #以bar图形式展示，以后可以研究下geom_column
                         geom_hline(yintercept = -30, linetype = "dashed", color = "green", alpha = 0.3, size = 1) + # PR判断线
                         geom_hline(yintercept = 20, linetype = "dashed", color = "red", alpha = 0.3, size = 1) +    # PD判断线
                         geom_hline(yintercept = 0, color = "black", size = 0.5) +                                   # 基线
                         geom_text(aes(x = reorder(pids,-sodcg),  #BOR文字标记
-                                      y = ifelse(sodcg >= 0, sodcg + 1.0, sodcg - 1.0),
-                                      vjust = ifelse(sodcg >= 0, -0.5, 1.5),
-                                      label = bormk),
-                                  size = 6) +
-                        geom_text(aes(x = reorder(pids,-sodcg), y = 0, label = cfmmk),  vjust = -1, size = 6) +  #confirmed CR/PR文字标记
+                                y = ifelse(sodcg >= 0, sodcg + 1.0, sodcg - 1.0),
+                                vjust = ifelse(sodcg >= 0, -0.5, 1.5),
+                                label = bormk),
+                                size = 4) +
+                        geom_text(aes(x = reorder(pids,-sodcg), y = 0, label = cfmmk),  vjust = -1, size = 4) +  #confirmed CR/PR文字标记
                         geom_text(aes(x = reorder(pids,-sodcg),  #on-going/off-going文字标记
                                       y = ifelse(sodcg >= 0, sodcg + 1.0, sodcg - 1.0),
                                       vjust = ifelse(sodcg >= 0, 
                                                 ifelse(!is.na(bormk), -1.5, -0.5), 
                                                 ifelse(!is.na(bormk), 2.0, 1.0)),
                                       label = ogtmk), 
-                                  size = 8) + 
+                                  size = 5) + 
                         scale_y_continuous( #Y轴修饰
-                            #limits = c(llim, ulim), 
+                            limits = c(llim, ulim), 
                             breaks = function(limits) {
                                 # 基于limits生成合适的breaks
                                 lower <- floor(limits[1] / 20) * 20
@@ -124,8 +125,8 @@ waterfallClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Class(
                               # legend.box.margin = margin(1, 1, 1, 1),  # 边框内边距
                               legend.key.height = unit(2, "lines"),
                               legend.key.width = unit(2, "lines"),
-                              legend.title = element_text(size = 20, face = "bold"),  # 图例标题加粗
-                              legend.text = element_text(size = 18)
+                              legend.title = element_text(size = 18, face = "bold"),  # 图例标题加粗
+                              legend.text = element_text(size = 16)
                         ) +
                         scale_fill_discrete(name = self$options$barGP, labels = new_labels) # 控制在最多2行显示图例, 含样本量计算的图例信息更新
                                             #guide = guide_legend(nrow = 6)
@@ -168,7 +169,7 @@ waterfallClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Class(
                                  ) +
                                  coord_fixed(ratio = 1) +
                                  labs(x = "试验参与者编号") +
-                                 scale_fill_discrete() #guide = guide_legend(nrow = 3)
+                                 scale_fill_discrete(guide = guide_legend(nrow = 2)) #guide = guide_legend(nrow = 3)
 
                     na_color <- "gray80"
                     pick_theme_color <- function(operation, p) { # 选择不同ggsci配色主题的函数
@@ -181,6 +182,7 @@ waterfallClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Class(
                                 "UCSF" = p + scale_color_ucscgb() + scale_fill_ucscgb(na.value = na_color),
                                 "JCO" = p + scale_color_jco() + scale_fill_jco(na.value = na_color),
                                 "TRON" = p + scale_color_tron() + scale_fill_tron(na.value = na_color),
+                                "Simpsons" = p + scale_color_simpsons() + scale_fill_simpsons(na.value = na_color),
                                 "Accent" = p + scale_fill_brewer(palette = "Accent", na.value = na_color),
                                 "Dark2" = p + scale_fill_brewer(palette = "Dark2", na.value = na_color),
                                 "Paired" = p + scale_fill_brewer(palette = "Paired", na.value = na_color),

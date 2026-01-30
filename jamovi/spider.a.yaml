@@ -1,0 +1,53 @@
+---
+name:  spider
+title: Spider Plot
+menuGroup: TrialPlots
+menuSubgroup: Phase1
+version: '1.0.0'
+jas: '1.2'
+
+options:
+    - name: data
+      type: Data
+
+    - name: pid
+      title: 患者/参与者ID
+      suggested: [id,nominal]
+      permitted: [numeric,factor,id]
+      type: Variable
+
+    - name: timeS
+      title: 肿评时间（%Y-%m-%d格式）
+      suggested: [nominal]
+      permitted: [factor]
+      type: Variable
+
+    - name: lch
+      title: 病灶SOD变化（%）
+      suggested: [continuous]
+      permitted: [numeric]
+      type: Variable  
+
+    - name: clrG
+      title: 分组信息
+      suggested: [nominal]
+      permitted: [factor]
+      type: Variable
+
+    - name: timeM
+      title: x轴标题
+      type: String 
+      default: "天数" 
+
+    - name: ynM
+      title: 是否显示id标签
+      type: List  
+      options: [是,否]
+      default: 是
+
+    - name: linThm
+      title: 配色风格
+      type: List  
+      options: [AAAS, JAMA, JCO, Lancet, NEJM, Nature, UCSF, TRON, Simpsons, Accent, Dark2, Paired, Pastel1, Pastel2, Set1, Set2, Set3]
+      default: Nature
+...
