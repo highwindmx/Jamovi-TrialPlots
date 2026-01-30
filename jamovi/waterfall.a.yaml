@@ -1,0 +1,72 @@
+---
+name:  waterfall
+title: Waterfall plot
+menuGroup: TrialPlots
+menuSubgroup: Phase1
+version: '0.0.0'
+jas: '1.2'
+
+options:
+    - name: data
+      type: Data
+
+    - name: pid
+      title: 患者/参与者ID
+      suggested: [id,nominal]
+      permitted: [numeric,factor,id]
+      type: Variable
+
+    - name: bch
+      title: 病灶SOD最佳变化（%）
+      suggested: [continuous]
+      permitted: [numeric]
+      type: Variable
+
+    - name: barGP
+      title: 条形图中分组
+      suggested: [nominal]
+      type: Variable
+
+    - name: borM
+      title: 最佳疗评（BOR）标记
+      suggested: [nominal]
+      type: Variable
+
+    - name: confM
+      title: 确认的CR/PR标记
+      suggested: [nominal]
+      type: Variable
+
+    - name: ongM
+      title: 是否在治标记
+      suggested: [nominal]
+      type: Variable 
+
+    - name: tilGP
+      title: 矩阵图中分组
+      suggested: [ordinal,nominal]
+      type: Variables
+
+    - name: confS
+      title: 确认的CR/PR图例
+      type: String 
+      default: "C 确认的CR/PR"
+
+    - name: ongS
+      title: 在治标记图例
+      type: String 
+      default: "→ 治疗中，× 治疗终止"
+
+    - name: barThm
+      title: 配色风格1
+      type: List  
+      options: [AAAS, JAMA, JCO, Lancet, NEJM, Nature, UCSF, TRON, Simpsons, Accent, Dark2, Paired, Pastel1, Pastel2, Set1, Set2, Set3]
+      default: Nature
+
+    - name: tilThm
+      title: 配色风格2
+      type: List  
+      options: [AAAS, JAMA, JCO, Lancet, NEJM, Nature, UCSF, TRON, Simpsons, Accent, Dark2, Paired, Pastel1, Pastel2, Set1, Set2, Set3]
+      default: AAAS      
+         
+...
