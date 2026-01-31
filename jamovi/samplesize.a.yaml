@@ -1,0 +1,62 @@
+---
+name:  samplesize
+title: Estimate Sample Size （time-to-event）
+menuGroup: TrialPlots
+menuSubgroup: Phase3
+version: '1.0.0'
+jas: '1.2'
+
+options:
+    - name: data
+      type: Data
+
+    - name: alpha
+      title: α（双侧）
+      type: Number 
+      default: 0.05
+
+    - name: power
+      title: power（1-β）
+      type: Number 
+      default: 0.8 
+
+    - name: hazardratio
+      title: 风险比（HR）
+      type: Number 
+      default: 0.7
+
+    - name: control
+      title: 对照组历史中位时长（月）
+      type: Number 
+      default: 8
+
+    - name: enroll
+      title: 入组时长（月）
+      type: Number 
+      default: 12 
+
+    - name: permonth
+      title: 每月入组人数
+      type: Number 
+      default: 25
+
+    - name: ratio
+      title: 试验组/对照组比例
+      type: Number 
+      default: 1
+
+    - name: followup
+      title: 随访时长（月）
+      type: Number 
+      default: 18
+
+    - name: dropout
+      title: 年脱落率
+      type: Number 
+      default: 0.05
+
+    - name: interm
+      title: 期中分析时点（%）
+      type: Number 
+      default: 75                                
+...

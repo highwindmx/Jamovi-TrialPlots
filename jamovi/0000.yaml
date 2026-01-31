@@ -33,6 +33,13 @@ analyses:
     menuGroup: TrialPlots
     menuTitle: Swimmer Plot
     menuSubgroup: Phase1
+  - title: Estimate Sample Size （time-to-event）
+    name: samplesize
+    ns: ClinicalTrialVisualization
+    category: analyses
+    menuGroup: TrialPlots
+    menuTitle: Estimate Sample Size （time-to-event）
+    menuSubgroup: Phase3
 usesNative: true
 minApp: 1.0.8
 
