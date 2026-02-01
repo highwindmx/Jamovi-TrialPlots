@@ -40,6 +40,12 @@ analyses:
     menuGroup: TrialPlots
     menuTitle: Estimate Sample Size （time-to-event）
     menuSubgroup: Phase3
+  - title: Adverse Events plots
+    name: AEplot
+    ns: ClinicalTrialVisualization
+    category: analyses
+    menuGroup: TrialPlots
+    menuTitle: Adverse Events plots
 usesNative: true
 minApp: 1.0.8
 

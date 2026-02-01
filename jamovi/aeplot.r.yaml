@@ -1,0 +1,16 @@
+---
+name:  AEplot
+title: Adverse Events plots
+jrs:   '1.1'
+
+items:
+    - name:  text
+      title: Adverse Events plots
+      type:  Preformatted
+
+    - name:  res_plot
+      title: 不良事件条形图
+      type:  Image
+      width: 800
+      renderFun: .plot
+...

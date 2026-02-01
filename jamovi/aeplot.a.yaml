@@ -1,0 +1,47 @@
+---
+name:  AEplot
+title: Adverse Events plots
+menuGroup: TrialPlots
+version: '1.0.0'
+jas: '1.2'
+
+options:
+    - name: data
+      type: Data
+
+    - name: aeTerm
+      title: 不良事件术语
+      suggested: [nominal]      
+      type: Variable
+
+    - name: testGA
+      title: 试验组所有等级AE百分比（%）
+      suggested: [continuous]  
+      permitted: [numeric]
+      type: Variable
+
+    - name: testG3
+      title: 试验组3级及以上AE百分比（%）
+      suggested: [continuous]       
+      permitted: [numeric]            
+      type: Variable
+
+    - name: controlGA
+      title: 对照组所有等级AE百分比（%）
+      suggested: [continuous]       
+      permitted: [numeric]      
+      type: Variable
+
+    - name: controlG3
+      title: 对照组3级及以上AE百分比（%）
+      suggested: [continuous]       
+      permitted: [numeric]      
+      type: Variable
+
+    - name: barThm
+      title: 配色风格
+      type: List  
+      options: [AAAS, JAMA, JCO, Lancet, NEJM, Nature, UCSF, TRON, Simpsons]
+      default: Nature      
+
+...
