@@ -12,5 +12,6 @@ items:
       title: 不良事件条形图
       type:  Image
       width: 800
+      height: 500
       renderFun: .plot
 ...
