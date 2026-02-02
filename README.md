@@ -74,7 +74,10 @@ Thank you to all who champion accessible, transparent, and reproducible science!
 ## ☕ Support This Project
 
 If you find **Jamovi-TrialPlots** useful in your work or research, consider buying me a coffee! Your support helps keep this project free, maintained, and continuously improved.
-![9df5e9fa910893b32591544b54146e2c](https://github.com/user-attachments/assets/81b2c2aa-9845-4b60-94f2-fe49e150cb29)
+
+<img width="240" alt="打赏码" src="https://github.com/user-attachments/assets/81b2c2aa-9845-4b60-94f2-fe49e150cb29" />
+
+
 
 **Let your clinical data tell its story—with clarity, confidence, and no code.**  
 **Jamovi-TrialPlots: Professional visuals. Simple workflow. For everyone.**
