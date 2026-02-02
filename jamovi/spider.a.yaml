@@ -2,7 +2,7 @@
 name:  spider
 title: Spider Plot
 menuGroup: TrialPlots
-menuSubgroup: Phase1
+menuSubgroup: Efficacy
 version: '1.0.0'
 jas: '1.2'
 

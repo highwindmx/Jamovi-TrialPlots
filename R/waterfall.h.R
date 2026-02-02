@@ -163,7 +163,6 @@ waterfallResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
     inherit = jmvcore::Group,
     active = list(
         res_text = function() private$.items[["res_text"]],
-        res_debug = function() private$.items[["res_debug"]],
         res_plot = function() private$.items[["res_plot"]],
         res_table = function() private$.items[["res_table"]]),
     private = list(),
@@ -177,10 +176,6 @@ waterfallResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 options=options,
                 name="res_text",
                 title="\u603B\u4F53\u4FE1\u606F"))
-            self$add(jmvcore::Preformatted$new(
-                options=options,
-                name="res_debug",
-                title="debug\u4FE1\u606F"))
             self$add(jmvcore::Image$new(
                 options=options,
                 name="res_plot",
@@ -242,7 +237,6 @@ waterfallBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
 #' @return A results object containing:
 #' \tabular{llllll}{
 #'   \code{results$res_text} \tab \tab \tab \tab \tab a preformatted \cr
-#'   \code{results$res_debug} \tab \tab \tab \tab \tab a preformatted \cr
 #'   \code{results$res_plot} \tab \tab \tab \tab \tab an image \cr
 #'   \code{results$res_table} \tab \tab \tab \tab \tab a table \cr
 #' }
