@@ -2,7 +2,7 @@
 name:  samplesize
 title: Estimate Sample Size （time-to-event）
 menuGroup: TrialPlots
-menuSubgroup: Phase3
+menuSubgroup: Design
 version: '1.0.0'
 jas: '1.2'
 

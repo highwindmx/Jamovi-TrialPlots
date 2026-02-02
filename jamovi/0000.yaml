@@ -18,34 +18,35 @@ analyses:
     category: analyses
     menuGroup: TrialPlots
     menuTitle: Waterfall plot
-    menuSubgroup: Phase1
+    menuSubgroup: Efficacy
   - title: Spider Plot
     name: spider
     ns: ClinicalTrialVisualization
     category: analyses
     menuGroup: TrialPlots
     menuTitle: Spider Plot
-    menuSubgroup: Phase1
+    menuSubgroup: Efficacy
   - title: Swimmer Plot
     name: swimmer
     ns: ClinicalTrialVisualization
     category: analyses
     menuGroup: TrialPlots
     menuTitle: Swimmer Plot
-    menuSubgroup: Phase1
+    menuSubgroup: Efficacy
   - title: Estimate Sample Size （time-to-event）
     name: samplesize
     ns: ClinicalTrialVisualization
     category: analyses
     menuGroup: TrialPlots
     menuTitle: Estimate Sample Size （time-to-event）
-    menuSubgroup: Phase3
+    menuSubgroup: Design
   - title: Adverse Events plots
     name: AEplot
     ns: ClinicalTrialVisualization
     category: analyses
     menuGroup: TrialPlots
     menuTitle: Adverse Events plots
+    menuSubgroup: Safety
 usesNative: true
 minApp: 1.0.8
 

@@ -2,7 +2,7 @@
 name:  waterfall
 title: Waterfall plot
 menuGroup: TrialPlots
-menuSubgroup: Phase1
+menuSubgroup: Efficacy
 version: '0.0.0'
 jas: '1.2'
 

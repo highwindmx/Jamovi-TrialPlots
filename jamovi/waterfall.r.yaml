@@ -8,10 +8,6 @@ items:
       title: 总体信息
       type:  Preformatted
 
-    - name:  res_debug
-      title: debug信息
-      type:  Preformatted
-
     - name:  res_plot
       title: 瀑布图
       type:  Image
