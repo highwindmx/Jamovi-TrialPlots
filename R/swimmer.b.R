@@ -51,33 +51,35 @@ swimmerClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Class(
                 color_mapping <- c("on" = "black", "off" = "black")
                 marker_mapping <- c("➔ 治疗中", "× 治疗结束")
                 if (self$options$ynG == "否") {
-                    plotSwim <- ggplot(data = arm_data, aes(x=reorder(pids, days_from_min), y=days_from_min, fill=colorgp))
+                    plotSwim <- ggplot(data = arm_data, aes(x=reorder(pids, days_from_min), y=days_from_min))  +
+                        geom_bar(aes(fill=colorgp), stat = 'identity',width = 0.8, alpha=0.9) +
+                        geom_point(data = plotData, aes(shape=labelmk), size=4, alpha=0.7)
                 } else {
-                    plotSwim <- ggplot(data = arm_data, aes(x=interaction(reorder(pids, days_from_min), colorgp, sep=" | "), y=days_from_min, fill=colorgp)) 
+                    plotSwim <- ggplot(data = arm_data, aes(x=interaction(reorder(pids, days_from_min), colorgp, sep=" | "), y=days_from_min)) +
+                        geom_bar(aes(fill=colorgp), stat = 'identity',width = 0.8, alpha=0.9) +
+                        geom_point(data = plotData, aes(shape=labelmk), size=4, alpha=0.7)
                 }
-                    plotSwim <- plotSwim +
-                        geom_bar(stat = 'identity',width = 0.8) +
-                        #geom_text(data = arm_data[arm_data$statusmk == "on", ], aes(label = "➤"), hjust = -0.2, size=5) +
-                        #geom_text(data = arm_data[arm_data$statusmk == "off", ], aes(label = "×"), hjust = -0.3, size=6) + 
-                        geom_text(aes(label = ifelse(statusmk == "on", "➔", "×")), hjust = -0.2, size=5) + 
-                        geom_point(data = plotData[(plotData$labelmk != "Start" & plotData$labelmk != "End"), ], aes(shape=labelmk), size=4, alpha=0.7) +
-                        coord_flip() +
-                        labs(title=paste0('泳道图（按',self$options$colorG,'分组）'), x="试验参与者编号", y=self$options$timeM) + #标签
-                        theme_classic() + #极简，白色背景
-                        theme(plot.title = element_text(size = 20, hjust = 0.5, margin = margin(b = 20)),  #标题居中
-                            axis.text.x = element_text(size = 14),  #angle = 45, hjust = 1, vjust = 1),  #X轴文字标记
-                            axis.text.y = element_text(size = 14),
-                            axis.title.x = element_text(size = 16),
-                            axis.title.y = element_text(size = 16),
-                            #legend.key.height = unit(2, "lines"),
-                            #legend.key.width = unit(2, "lines"),
-                            legend.title = element_text(size = 12, face = "bold"),  # 图例标题加粗
-                            legend.text = element_text(size = 12) 
-                        )+
-                        scale_y_continuous(
-                            expand = expansion(add = c(1, 10))  # c(左侧加, 右侧加)具体数值
-                        )+
-                        scale_shape_manual(values = c("CR"=18,"PR"=17,"SD"=16,"PD"=15,"NE"=13))
+                plotSwim <- plotSwim +
+                    #geom_text(data = arm_data[arm_data$statusmk == "on", ], aes(label = "➤"), hjust = -0.2, size=5) +
+                    #geom_text(data = arm_data[arm_data$statusmk == "off", ], aes(label = "×"), hjust = -0.3, size=6) + 
+                    geom_text(aes(label = ifelse(statusmk == "on", "➔", "×")), hjust = -0.2, size=5) + 
+                    coord_flip() +
+                    labs(title=paste0('泳道图（按',self$options$colorG,'分组）'), x="试验参与者编号", y=self$options$timeM) + #标签
+                    theme_classic() + #极简，白色背景
+                    theme(plot.title = element_text(size = 20, hjust = 0.5, margin = margin(b = 20)),  #标题居中
+                        axis.text.x = element_text(size = 14),  #angle = 45, hjust = 1, vjust = 1),  #X轴文字标记
+                        axis.text.y = element_text(size = 14),
+                        axis.title.x = element_text(size = 16),
+                        axis.title.y = element_text(size = 16),
+                        #legend.key.height = unit(2, "lines"),
+                        #legend.key.width = unit(2, "lines"),
+                        legend.title = element_text(size = 12, face = "bold"),  # 图例标题加粗
+                        legend.text = element_text(size = 12) 
+                    )+
+                    scale_y_continuous(
+                        expand = expansion(add = c(1, 10))  # c(左侧加, 右侧加)具体数值
+                    )+
+                    scale_shape_manual(values = c("CR"=18,"PR"=17,"SD"=16,"PD"=15,"NE"=13))
      
                 na_color <- "gray80"
                 pick_theme_color <- function(operation, p) { # 选择不同ggsci配色主题的函数
