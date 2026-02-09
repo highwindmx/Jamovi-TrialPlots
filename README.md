@@ -33,7 +33,7 @@ Illustrate treatment duration, key events (e.g., disease progression, dropout), 
 Supports planning of group sequential designs by estimating required sample sizes under various stopping rules and interim analysis scenarios.
 <img width="480" height="260" alt="图片" src="https://github.com/user-attachments/assets/20814d89-93d9-4a75-ba8a-e95033950e9b" />
 
-## Analysis 5 Adverse Events Bar Plot
+## Analysis 5 Adverse Events Butterfly Plot
 Summarize and visualize adverse event frequencies by Preferred Term (PT), facilitating safety signal detection.
 <img width="480" height="260" alt="图片" src="https://github.com/user-attachments/assets/64ef22a9-acb2-45fe-93db-41b293a822ee" />
 
