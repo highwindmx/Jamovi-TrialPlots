@@ -26,7 +26,8 @@ Display longitudinal trajectories for each participant over time, showing how re
 <img width="480" height="260" alt="Snipaste_2026-01-30_21-54-48" src="https://github.com/user-attachments/assets/6ef3e327-a727-4159-b922-2cb22be25f16" />
 
 ## Analysis 3 Swimmer Plot
-Illustrate treatment duration, key events (e.g., disease progression, dropout), and study arms on a timeline—ideal for summarizing complex trial timelines.
+Illustrate treatment duration, key events (e.g., disease progression, dropout), and study arms on a complex trial timelines.
+
 <img width="480" height="260" alt="Snipaste_2026-01-30_21-54-07" src="https://github.com/user-attachments/assets/a36fe3f1-5ace-442c-a1fd-94b62df73d13" />
 
 ## Analysis 4 Group Sequential Sample Size Estimation
