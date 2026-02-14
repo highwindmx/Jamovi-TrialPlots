@@ -19,10 +19,12 @@ Jamovi-TrialPlots currently includes five essential analyses for clinical trial 
 
 ## Analysis 1 Waterfall Plot
 Visualize individual subject-level changes (e.g., tumor shrinkage) from baseline to endpoint—commonly used in oncology trials.
+
 <img width="480" height="260" alt="Snipaste_2026-01-30_10-30-32" src="https://github.com/user-attachments/assets/cd850ef6-e12a-44cd-ab6b-fe85ac75e9d4" />
 
 ## Analysis 2 Spider Plot
 Display longitudinal trajectories for each participant over time, showing how responses evolve during treatment.
+
 <img width="480" height="260" alt="Snipaste_2026-01-30_21-54-48" src="https://github.com/user-attachments/assets/6ef3e327-a727-4159-b922-2cb22be25f16" />
 
 ## Analysis 3 Swimmer Plot
@@ -32,10 +34,12 @@ Illustrate treatment duration, key events (e.g., disease progression, dropout), 
 
 ## Analysis 4 Group Sequential Sample Size Estimation
 Supports planning of group sequential designs by estimating required sample sizes under various stopping rules and interim analysis scenarios.
+
 <img width="480" height="260" alt="图片" src="https://github.com/user-attachments/assets/20814d89-93d9-4a75-ba8a-e95033950e9b" />
 
 ## Analysis 5 Adverse Events Butterfly Plot
 Summarize and visualize adverse event frequencies by Preferred Term (PT), facilitating safety signal detection.
+
 <img width="480" height="260" alt="图片" src="https://github.com/user-attachments/assets/64ef22a9-acb2-45fe-93db-41b293a822ee" />
 
 All plots are fully customizable (colors, labels, grouping variables)
@@ -66,6 +70,8 @@ Thank you to all who champion accessible, transparent, and reproducible science!
 2. Open **jamovi** (version 2.6 or later)  
 3. Go to `Modules` → `load from local`  
 4. Find **TrialPlots** under the Analyses menu and start visualizing!
+
+**Note: Please note that the correct data structure is crucial for visualization. I recommend trying out the demo datasets first.**
 
 > 💡 **GitHub Repository**: [https://github.com/yourname/Jamovi-TrialPlots](https://github.com/yourname/Jamovi-TrialPlots)  
 > 📬 Contributions, bug reports, and feature requests are welcome!
