@@ -1,48 +1,47 @@
 ---
-title: What the Package Does (Title Case)
-name: ClinicalTrialVisualization
-version: 0.0.0
+title: Visualize Clinical Trial Data
+name: TrialPlots
+version: 0.0.1
 jms: '1.0'
 authors:
-  - Who wrote it
-maintainer: The package maintainer <yourself@somewhere.net>
-date: '1970-01-01'
+  - highwind
+maintainer: highwind <highwindmx@126.com>
+date: '2026-01-01'
 type: R
 description: >-
-  More about what it does (maybe more than one line) Use four spaces when
-  indenting paragraphs within the Description.
+  Visualize your clinical trial data
 analyses:
   - title: Waterfall plot
     name: waterfall
-    ns: ClinicalTrialVisualization
+    ns: TrialPlots
     category: analyses
     menuGroup: TrialPlots
     menuTitle: Waterfall plot
     menuSubgroup: Efficacy
   - title: Spider Plot
     name: spider
-    ns: ClinicalTrialVisualization
+    ns: TrialPlots
     category: analyses
     menuGroup: TrialPlots
     menuTitle: Spider Plot
     menuSubgroup: Efficacy
   - title: Swimmer Plot
     name: swimmer
-    ns: ClinicalTrialVisualization
+    ns: TrialPlots
     category: analyses
     menuGroup: TrialPlots
     menuTitle: Swimmer Plot
     menuSubgroup: Efficacy
   - title: Estimate Sample Size （time-to-event）
     name: samplesize
-    ns: ClinicalTrialVisualization
+    ns: TrialPlots
     category: analyses
     menuGroup: TrialPlots
     menuTitle: Estimate Sample Size （time-to-event）
     menuSubgroup: Design
-  - title: Adverse Events plots
+  - title: Adverse Events Butterfly plots
     name: AEplot
-    ns: ClinicalTrialVisualization
+    ns: TrialPlots
     category: analyses
     menuGroup: TrialPlots
     menuTitle: Adverse Events plots
