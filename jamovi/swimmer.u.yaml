@@ -16,17 +16,17 @@ children:
             maxItemCount: 1
             isTarget: true
       - type: TargetLayoutBox
-        label: 标签时间（%Y-%m-%d格式）
-        children:
-          - type: VariablesListBox
-            name: timeS
-            maxItemCount: 1
-            isTarget: true
-      - type: TargetLayoutBox
         label: 标签组
         children:
           - type: VariablesListBox
             name: lableM
+            maxItemCount: 1
+            isTarget: true
+      - type: TargetLayoutBox
+        label: 标签时间（%Y-%m-%d格式）
+        children:
+          - type: VariablesListBox
+            name: timeS
             maxItemCount: 1
             isTarget: true
       - type: TargetLayoutBox

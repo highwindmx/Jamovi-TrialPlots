@@ -3,7 +3,7 @@
 
 'use strict';
 
-const options = [{"name":"data","type":"Data"},{"name":"pid","title":"患者/参与者ID","suggested":["id","nominal"],"permitted":["numeric","factor","id"],"type":"Variable"},{"name":"timeS","title":"标签时间（%Y-%m-%d格式）","suggested":["nominal"],"permitted":["factor"],"type":"Variable"},{"name":"lableM","title":"标签组","suggested":["nominal"],"permitted":["factor"],"type":"Variable"},{"name":"statusM","title":"状态组","suggested":["nominal"],"permitted":["factor"],"type":"Variable"},{"name":"colorG","title":"分色组","suggested":["nominal"],"permitted":["factor"],"type":"Variable"},{"name":"ynG","title":"是否分组排序","type":"List","options":["否","是"],"default":"否"},{"name":"timeM","title":"x轴标题","type":"String","default":"天数"},{"name":"linThm","title":"配色风格","type":"List","options":["AAAS","JAMA","JCO","Lancet","NEJM","Nature","UCSF","TRON","Simpsons","Accent","Dark2","Paired","Pastel1","Pastel2","Set1","Set2","Set3"],"default":"Nature"}];
+const options = [{"name":"data","type":"Data"},{"name":"pid","title":"患者/参与者ID","suggested":["id","nominal"],"permitted":["numeric","factor","id"],"type":"Variable"},{"name":"lableM","title":"标签组","suggested":["nominal"],"permitted":["factor"],"type":"Variable"},{"name":"timeS","title":"标签时间（%Y-%m-%d格式）","suggested":["nominal"],"permitted":["factor"],"type":"Variable"},{"name":"statusM","title":"状态组","suggested":["nominal"],"permitted":["factor"],"type":"Variable"},{"name":"colorG","title":"分色组","suggested":["nominal"],"permitted":["factor"],"type":"Variable"},{"name":"ynG","title":"是否分组排序","type":"List","options":["否","是"],"default":"否"},{"name":"timeM","title":"x轴标题","type":"String","default":"天数"},{"name":"linThm","title":"配色风格","type":"List","options":["AAAS","JAMA","JCO","Lancet","NEJM","Nature","UCSF","TRON","Simpsons","Accent","Dark2","Paired","Pastel1","Pastel2","Set1","Set2","Set3"],"default":"Nature"}];
 
 const view = function() {
     
@@ -49,12 +49,12 @@ view.layout = ui.extend({
 				{
 					type: DefaultControls.TargetLayoutBox,
 					typeName: 'TargetLayoutBox',
-					label: "标签时间（%Y-%m-%d格式）",
+					label: "标签组",
 					controls: [
 						{
 							type: DefaultControls.VariablesListBox,
 							typeName: 'VariablesListBox',
-							name: "timeS",
+							name: "lableM",
 							maxItemCount: 1,
 							isTarget: true
 						}
@@ -63,12 +63,12 @@ view.layout = ui.extend({
 				{
 					type: DefaultControls.TargetLayoutBox,
 					typeName: 'TargetLayoutBox',
-					label: "标签组",
+					label: "标签时间（%Y-%m-%d格式）",
 					controls: [
 						{
 							type: DefaultControls.VariablesListBox,
 							typeName: 'VariablesListBox',
-							name: "lableM",
+							name: "timeS",
 							maxItemCount: 1,
 							isTarget: true
 						}

@@ -11,7 +11,9 @@ AEplotOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             testG3 = NULL,
             controlGA = NULL,
             controlG3 = NULL,
-            barThm = "Nature", ...) {
+            barThm = "Nature",
+            barShp = "Inside",
+            shText = "\u662F", ...) {
 
             super$initialize(
                 package="ClinicalTrialVisualization",
@@ -66,6 +68,20 @@ AEplotOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                     "TRON",
                     "Simpsons"),
                 default="Nature")
+            private$..barShp <- jmvcore::OptionList$new(
+                "barShp",
+                barShp,
+                options=list(
+                    "Outside",
+                    "Inside"),
+                default="Inside")
+            private$..shText <- jmvcore::OptionList$new(
+                "shText",
+                shText,
+                options=list(
+                    "\u662F",
+                    "\u5426"),
+                default="\u662F")
 
             self$.addOption(private$..aeTerm)
             self$.addOption(private$..testGA)
@@ -73,6 +89,8 @@ AEplotOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
             self$.addOption(private$..controlGA)
             self$.addOption(private$..controlG3)
             self$.addOption(private$..barThm)
+            self$.addOption(private$..barShp)
+            self$.addOption(private$..shText)
         }),
     active = list(
         aeTerm = function() private$..aeTerm$value,
@@ -80,14 +98,18 @@ AEplotOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
         testG3 = function() private$..testG3$value,
         controlGA = function() private$..controlGA$value,
         controlG3 = function() private$..controlG3$value,
-        barThm = function() private$..barThm$value),
+        barThm = function() private$..barThm$value,
+        barShp = function() private$..barShp$value,
+        shText = function() private$..shText$value),
     private = list(
         ..aeTerm = NA,
         ..testGA = NA,
         ..testG3 = NA,
         ..controlGA = NA,
         ..controlG3 = NA,
-        ..barThm = NA)
+        ..barThm = NA,
+        ..barShp = NA,
+        ..shText = NA)
 )
 
 AEplotResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
@@ -112,6 +134,7 @@ AEplotResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 name="res_plot",
                 title="\u4E0D\u826F\u4E8B\u4EF6\u6761\u5F62\u56FE",
                 width=800,
+                height=500,
                 renderFun=".plot"))}))
 
 AEplotBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
@@ -145,6 +168,8 @@ AEplotBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
 #' @param controlGA .
 #' @param controlG3 .
 #' @param barThm .
+#' @param barShp .
+#' @param shText .
 #' @return A results object containing:
 #' \tabular{llllll}{
 #'   \code{results$text} \tab \tab \tab \tab \tab a preformatted \cr
@@ -159,7 +184,9 @@ AEplot <- function(
     testG3,
     controlGA,
     controlG3,
-    barThm = "Nature") {
+    barThm = "Nature",
+    barShp = "Inside",
+    shText = "\u662F") {
 
     if ( ! requireNamespace("jmvcore", quietly=TRUE))
         stop("AEplot requires jmvcore to be installed (restart may be required)")
@@ -185,7 +212,9 @@ AEplot <- function(
         testG3 = testG3,
         controlGA = controlGA,
         controlG3 = controlG3,
-        barThm = barThm)
+        barThm = barThm,
+        barShp = barShp,
+        shText = shText)
 
     analysis <- AEplotClass$new(
         options = options,
