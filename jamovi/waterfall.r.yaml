@@ -27,5 +27,7 @@ items:
         - name: 个数 
           type: integer
 
-
+    - name:  text
+      title: X轴标签
+      type:  Preformatted
 ...      

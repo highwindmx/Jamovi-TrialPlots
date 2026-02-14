@@ -62,7 +62,7 @@ swimmerClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Class(
                 plotSwim <- plotSwim +
                     #geom_text(data = arm_data[arm_data$statusmk == "on", ], aes(label = "➤"), hjust = -0.2, size=5) +
                     #geom_text(data = arm_data[arm_data$statusmk == "off", ], aes(label = "×"), hjust = -0.3, size=6) + 
-                    geom_text(aes(label = ifelse(statusmk == "on", "➔", "×")), hjust = -0.2, size=5) + 
+                    geom_text(aes(label = ifelse(statusmk == "on", "➔", "×"), color=colorgp), hjust = -0.2, size=5) + 
                     coord_flip() +
                     labs(title=paste0('泳道图（按',self$options$colorG,'分组）'), x="试验参与者编号", y=self$options$timeM) + #标签
                     theme_classic() + #极简，白色背景
@@ -105,7 +105,11 @@ swimmerClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Class(
                     )
                 }
                 # 选择不同ggsci配色
-                plotSwim <- pick_theme_color(self$options$linThm, plotSwim)      
+                y_labels <- ggplot_build(plotSwim)$layout$panel_params[[1]]$y$get_labels()
+                self$results$text$setContent(rev(y_labels)) # 输出排序的pid，方便手工配合Excel手工作图
+                plotSwim <- pick_theme_color(self$options$linThm, plotSwim) 
+                print(plotSwim)
+                TRUE
             }
         }
     )    

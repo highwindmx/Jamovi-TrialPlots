@@ -7,8 +7,8 @@ swimmerOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
     public = list(
         initialize = function(
             pid = NULL,
-            timeS = NULL,
             lableM = NULL,
+            timeS = NULL,
             statusM = NULL,
             colorG = NULL,
             ynG = "\u5426",
@@ -31,16 +31,16 @@ swimmerOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                     "numeric",
                     "factor",
                     "id"))
-            private$..timeS <- jmvcore::OptionVariable$new(
-                "timeS",
-                timeS,
+            private$..lableM <- jmvcore::OptionVariable$new(
+                "lableM",
+                lableM,
                 suggested=list(
                     "nominal"),
                 permitted=list(
                     "factor"))
-            private$..lableM <- jmvcore::OptionVariable$new(
-                "lableM",
-                lableM,
+            private$..timeS <- jmvcore::OptionVariable$new(
+                "timeS",
+                timeS,
                 suggested=list(
                     "nominal"),
                 permitted=list(
@@ -94,8 +94,8 @@ swimmerOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                 default="Nature")
 
             self$.addOption(private$..pid)
-            self$.addOption(private$..timeS)
             self$.addOption(private$..lableM)
+            self$.addOption(private$..timeS)
             self$.addOption(private$..statusM)
             self$.addOption(private$..colorG)
             self$.addOption(private$..ynG)
@@ -104,8 +104,8 @@ swimmerOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
         }),
     active = list(
         pid = function() private$..pid$value,
-        timeS = function() private$..timeS$value,
         lableM = function() private$..lableM$value,
+        timeS = function() private$..timeS$value,
         statusM = function() private$..statusM$value,
         colorG = function() private$..colorG$value,
         ynG = function() private$..ynG$value,
@@ -113,8 +113,8 @@ swimmerOptions <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
         linThm = function() private$..linThm$value),
     private = list(
         ..pid = NA,
-        ..timeS = NA,
         ..lableM = NA,
+        ..timeS = NA,
         ..statusM = NA,
         ..colorG = NA,
         ..ynG = NA,
@@ -126,25 +126,25 @@ swimmerResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
     "swimmerResults",
     inherit = jmvcore::Group,
     active = list(
-        text = function() private$.items[["text"]],
-        res_plot = function() private$.items[["res_plot"]]),
+        res_plot = function() private$.items[["res_plot"]],
+        text = function() private$.items[["text"]]),
     private = list(),
     public=list(
         initialize=function(options) {
             super$initialize(
                 options=options,
                 name="",
-                title="1期研究 - 泳道图")
-            self$add(jmvcore::Preformatted$new(
-                options=options,
-                name="text",
-                title="Swimmer Plot"))
+                title="泳道图")
             self$add(jmvcore::Image$new(
                 options=options,
                 name="res_plot",
                 title="\u6CF3\u9053\u56FE",
                 width=600,
-                renderFun=".plot"))}))
+                renderFun=".plot"))
+            self$add(jmvcore::Preformatted$new(
+                options=options,
+                name="text",
+                title="Y\u8F74\u6807\u7B7E"))}))
 
 swimmerBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
     "swimmerBase",
@@ -172,8 +172,8 @@ swimmerBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
 #' 
 #' @param data .
 #' @param pid .
-#' @param timeS .
 #' @param lableM .
+#' @param timeS .
 #' @param statusM .
 #' @param colorG .
 #' @param ynG .
@@ -181,16 +181,16 @@ swimmerBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
 #' @param linThm .
 #' @return A results object containing:
 #' \tabular{llllll}{
-#'   \code{results$text} \tab \tab \tab \tab \tab a preformatted \cr
 #'   \code{results$res_plot} \tab \tab \tab \tab \tab an image \cr
+#'   \code{results$text} \tab \tab \tab \tab \tab a preformatted \cr
 #' }
 #'
 #' @export
 swimmer <- function(
     data,
     pid,
-    timeS,
     lableM,
+    timeS,
     statusM,
     colorG,
     ynG = "\u5426",
@@ -201,28 +201,28 @@ swimmer <- function(
         stop("swimmer requires jmvcore to be installed (restart may be required)")
 
     if ( ! missing(pid)) pid <- jmvcore::resolveQuo(jmvcore::enquo(pid))
-    if ( ! missing(timeS)) timeS <- jmvcore::resolveQuo(jmvcore::enquo(timeS))
     if ( ! missing(lableM)) lableM <- jmvcore::resolveQuo(jmvcore::enquo(lableM))
+    if ( ! missing(timeS)) timeS <- jmvcore::resolveQuo(jmvcore::enquo(timeS))
     if ( ! missing(statusM)) statusM <- jmvcore::resolveQuo(jmvcore::enquo(statusM))
     if ( ! missing(colorG)) colorG <- jmvcore::resolveQuo(jmvcore::enquo(colorG))
     if (missing(data))
         data <- jmvcore::marshalData(
             parent.frame(),
             `if`( ! missing(pid), pid, NULL),
-            `if`( ! missing(timeS), timeS, NULL),
             `if`( ! missing(lableM), lableM, NULL),
+            `if`( ! missing(timeS), timeS, NULL),
             `if`( ! missing(statusM), statusM, NULL),
             `if`( ! missing(colorG), colorG, NULL))
 
-    for (v in timeS) if (v %in% names(data)) data[[v]] <- as.factor(data[[v]])
     for (v in lableM) if (v %in% names(data)) data[[v]] <- as.factor(data[[v]])
+    for (v in timeS) if (v %in% names(data)) data[[v]] <- as.factor(data[[v]])
     for (v in statusM) if (v %in% names(data)) data[[v]] <- as.factor(data[[v]])
     for (v in colorG) if (v %in% names(data)) data[[v]] <- as.factor(data[[v]])
 
     options <- swimmerOptions$new(
         pid = pid,
-        timeS = timeS,
         lableM = lableM,
+        timeS = timeS,
         statusM = statusM,
         colorG = colorG,
         ynG = ynG,

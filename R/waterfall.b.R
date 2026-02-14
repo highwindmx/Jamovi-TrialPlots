@@ -201,9 +201,13 @@ waterfallClass <- if (requireNamespace('jmvcore', quietly=TRUE)) R6::R6Class(
                     tile_height = ceiling(length(features)/2)/10
                     plotMe <- plotBar / plotTile + 
                         plot_layout(axes = "collect_x") #heights = c(1-tile_height, tile_height),
+                    x_labels <- ggplot_build(plotMe)$layout$panel_params[[1]]$x$get_labels()
+                    self$results$text$setContent(x_labels) # 输出排序的pid，方便手工配合Excel手工作图                         
                     print(plotMe)
                 } else {
-                    print(plotBar)
+                    x_labels <- ggplot_build(plotBar)$layout$panel_params[[1]]$x$get_labels()
+                    self$results$text$setContent(x_labels) # 输出排序的pid，方便手工配合Excel手工作图 
+                    print(plotBar)                    
                 }
                 TRUE
             }

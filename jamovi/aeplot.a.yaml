@@ -43,6 +43,17 @@ options:
       title: 配色风格
       type: List  
       options: [AAAS, JAMA, JCO, Lancet, NEJM, Nature, UCSF, TRON, Simpsons]
-      default: Nature      
+      default: Nature
 
+    - name: barShp
+      title: 形式
+      type: List  
+      options: [Outside, Inside]
+      default: Inside
+
+    - name: shText
+      title: Inside是否显示数字
+      type: List  
+      options: [是, 否]
+      default: 是
 ...

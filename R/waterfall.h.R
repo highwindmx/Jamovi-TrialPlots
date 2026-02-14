@@ -164,7 +164,8 @@ waterfallResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
     active = list(
         res_text = function() private$.items[["res_text"]],
         res_plot = function() private$.items[["res_plot"]],
-        res_table = function() private$.items[["res_table"]]),
+        res_table = function() private$.items[["res_table"]],
+        text = function() private$.items[["text"]]),
     private = list(),
     public=list(
         initialize=function(options) {
@@ -196,7 +197,11 @@ waterfallResults <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
                         `content`="($key)"),
                     list(
                         `name`="\u4E2A\u6570", 
-                        `type`="integer"))))}))
+                        `type`="integer"))))
+            self$add(jmvcore::Preformatted$new(
+                options=options,
+                name="text",
+                title="X\u8F74\u6807\u7B7E"))}))
 
 waterfallBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
     "waterfallBase",
@@ -239,6 +244,7 @@ waterfallBase <- if (requireNamespace("jmvcore", quietly=TRUE)) R6::R6Class(
 #'   \code{results$res_text} \tab \tab \tab \tab \tab a preformatted \cr
 #'   \code{results$res_plot} \tab \tab \tab \tab \tab an image \cr
 #'   \code{results$res_table} \tab \tab \tab \tab \tab a table \cr
+#'   \code{results$text} \tab \tab \tab \tab \tab a preformatted \cr
 #' }
 #'
 #' Tables can be converted to data frames with \code{asDF} or \code{\link{as.data.frame}}. For example:
